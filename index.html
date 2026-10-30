@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
 <title>Читайка</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Nunito:wght@400;600;800&display=swap">
@@ -620,7 +626,164 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:.85rem}
 .langswitch .lang.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(59,53,51,.12)}
 .swapl{text-align:center;margin:6px 0 4px}
 .swap-btn{background:var(--orange)!important;border-color:var(--orange)!important}
+
+/* ============================================================
+   CHITAIKA · MOBILE REFINEMENT 2026-10-30
+   Style-only responsive layer. Desktop + original JS unchanged.
+   ============================================================ */
+@media (max-width: 679px) {
+  :root { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; }
+  body {
+    width: 100%; min-width: 0; margin: 0;
+    padding: 0 max(16px,env(safe-area-inset-right,0px)) 34px max(16px,env(safe-area-inset-left,0px));
+    background: #fff !important; font-size: 16px; line-height: 1.5;
+    overflow-x: clip;
+  }
+  .wrap { max-width: 100%; min-width:0; }
+  img { max-width:100%; }
+  main, section, article { min-width:0; }
+
+  /* Compact branded header, easy finger-sized navigation. */
+  .kid-top {
+    display: flex !important; flex-direction: column !important;
+    align-items: stretch !important; justify-content: flex-start !important;
+    gap: 10px !important; margin: 0 0 4px;
+    padding: 15px 0 8px !important;
+    border-bottom: 1px solid #f1e7e1;
+  }
+  .logo { display: inline-flex !important; align-self:flex-start; flex-direction:row!important;
+    align-items:center!important; width:auto; max-width:100%; min-width:0; }
+  .logo img { height: 49px !important; width: auto; max-width:min(250px,82vw); object-fit:contain; }
+  .kid-top nav {
+    display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr));
+    align-items:center; width:100% !important; gap:5px!important;
+    padding:0 !important; overflow:visible;
+  }
+  .kid-top nav a {
+    padding:10px 7px!important; min-height:44px; display:flex;align-items:center;
+    justify-content:center; border-radius:12px; font-size:.92rem!important;
+    line-height:1.2; white-space:nowrap;
+  }
+  .kid-top nav a:active { background: #fff2eb; }
+
+  /* Quiet, compact editorial headline, instead of a large blank hero. */
+  #v-home .intro {
+    max-width:100%; text-align:left; margin:0;
+    padding: 24px 2px 23px !important;
+  }
+  #v-home .intro h1 {
+    font-size:clamp(1.72rem,7.6vw,2.13rem)!important;
+    line-height:1.16; letter-spacing:-.025em;
+    font-weight:700; text-wrap:balance;
+  }
+  #v-home .intro-dots { display:none; }
+  #v-home .intro p { margin:8px 0 0!important; font-size:.91rem;
+    line-height:1.45; max-width:34ch; color:#7d716a; }
+
+  /* Home cards: one consistent rhythm, readable copy, full-height images. */
+  #v-home .hcards {
+    display:grid!important; grid-template-columns:minmax(0,1fr)!important;
+    gap:12px !important; margin:0 !important;
+  }
+  #v-home .hcard {
+    display:grid!important; grid-template-columns: minmax(106px,34%) minmax(0,1fr)!important;
+    grid-template-rows:auto auto 1fr; row-gap:3px!important;
+    column-gap:14px!important; min-height:166px;
+    padding:0 !important; gap: 0 14px !important;
+    align-items:start; overflow:hidden;
+    border:1.5px solid #eaded6; border-radius:18px;
+    background:#fff; box-shadow:none; transform:none;
+  }
+  #v-home .hcard .himg {
+    grid-column:1!important; grid-row:1 / 4!important;
+    width:100%; height:100%!important; min-height:166px!important;
+    margin:0!important; padding:0!important; align-self:stretch!important;
+    aspect-ratio:auto!important; border-radius:0;
+    display:block!important; overflow:hidden;
+  }
+  #v-home .hcard .himg img {
+    width:100%; height:100%; max-height:none; max-width:none;
+    display:block; object-fit:cover; object-position:center;
+    transition:none;
+  }
+  #v-home .h-tale .himg img { object-position:49% 45%; }
+  #v-home .h-story .himg img { object-position:50% 50%; }
+  #v-home .h-quiz .himg img { object-position:50% 45%; }
+  #v-home .hcard > .lvl {
+    grid-column:2;grid-row:1; margin:13px 12px 4px 0!important;
+    padding:4px 9px; line-height:1.2; font-size:.71rem!important;
+    border-radius:999px; background:#fbede5; color:#51443f!important;
+    letter-spacing:.01em;
+  }
+  #v-home .hcard > b {
+    grid-column:2; grid-row:2;
+    margin:0 13px 2px 0!important;
+    font-size:1.33rem!important; line-height:1.16; letter-spacing:-.015em;
+    color:var(--ink); font-weight:700;
+  }
+  #v-home .hcard > span:not(.himg):not(.lvl) {
+    grid-column:2; grid-row:3;
+    margin:3px 13px 14px 0!important; min-width:0;
+    font-size:.87rem!important; line-height:1.38!important;
+    color:#756b66; overflow-wrap:break-word;
+  }
+  #v-home .hcard:hover { border-color:#ddc7b7; transform:none; }
+  #v-home .hcard:active { background:#fffcfa; }
+
+  /* Responsive supporting sections: coherent cards, no decorative overload. */
+  #v-home .tidbits { margin-top:27px!important; gap:11px; }
+  #v-home .tidbit { padding:19px 18px 18px; border-radius:18px; gap:7px; }
+  #v-home .t-fact p { font-size:1rem; line-height:1.55; }
+  #v-home .pv-fr { font-size:1.13rem; }
+  #v-home .tb-next { min-height:44px; display:inline-flex;align-items:center; }
+  #v-home .pet-teaser, #v-home .dl, #v-home .lessons { margin-top:30px!important; border-radius:18px; }
+  #v-home .pet-teaser img { height:172px; }
+  #v-home .pet-teaser-body { padding:16px 18px 18px; }
+  #v-home .dl { padding:21px 18px;gap:20px; }
+  #v-home .dl .poster { max-width:190px; transform:none; }
+  #v-home .dl h2 { font-size:1.35rem; }
+  #v-home .lessons { padding:20px 18px; }
+  #v-home .contact-cta { margin-top:30px!important;padding-top:24px; }
+  #v-home .schools-cta { margin-top:28px!important; }
+
+  /* The other routes use the same quiet mobile design language. */
+  [id^="v-"]:not(#v-home) { padding-top:14px; }
+  .page-head { margin:8px 0 16px;gap:12px; }
+  .page-head h1,.partners-heading h1 { font-size:clamp(1.4rem,6vw,1.75rem); }
+  .card { padding:20px 16px; border-radius:18px; }
+  .card h2 { font-size:1.35rem; line-height:1.25; }
+  .bubble.intro-bubble { min-height:0; padding:16px 18px; border-radius:16px; }
+  .bubble.intro-bubble p { font-size:1.1rem; }
+  .chips { gap:8px; margin-bottom:17px; }
+  .chip { min-height:42px;padding:9px 14px; white-space:nowrap; }
+  .qcard:not(.hcard) { border-radius:17px; padding:18px 17px; }
+  .grid:not(.ten) { gap:10px; }
+  .grid .opt { padding:12px 9px; border-radius:14px; }
+  .grid.places { gap:10px; }
+  .grid.places .opt { padding:9px 7px 12px; }
+  .grid .opt .word { font-size:.95rem;line-height:1.25; }
+  .ans { min-height:46px;padding:12px 14px; }
+  .btn, .school-contact-submit, .wa-btn, .lessons-btn, .back, .reveal, .swap-btn { min-height:44px; }
+  input,textarea,select { max-width:100%;font-size:16px!important; }
+  .pet-photos { gap:2px; }
+  .pet-body p { font-size:.96rem; line-height:1.6; }
+  footer { font-size:.78rem; line-height:1.6; margin-top:30px; padding-bottom:env(safe-area-inset-bottom,0px); }
+}
+@media (max-width:359px) {
+  .logo img { height:43px!important; }
+  .kid-top nav a { font-size:.83rem!important; padding:9px 4px!important; }
+  #v-home .intro h1 { font-size:1.65rem!important; }
+  #v-home .hcard { grid-template-columns:minmax(98px,33%) minmax(0,1fr)!important; column-gap:11px!important; gap:0 11px!important; }
+  #v-home .hcard > b { font-size:1.23rem!important; }
+  #v-home .hcard > span:not(.himg):not(.lvl) { font-size:.83rem!important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto!important; }
+}
 </style>
+</head>
+<body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="husky" viewBox="0 0 120 124">
@@ -1560,3 +1723,6 @@ mountLead("leadAfisha",{source:"afisha",news:false});
 
 route();
 </script>
+
+</body>
+</html>
